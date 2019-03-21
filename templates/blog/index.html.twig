@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'hello.blogcontroller'|trans|raw }}{% endblock %}
+
+{% block main %}
+
+<div class="example-wrapper">
+  <h1>{{ 'hello.blogcontroller'|trans|raw }}</h1>
+
+  This friendly message is coming from:
+  <ul>
+    <li>Your controller at
+      <code><a href="{{ 'C:/xampp/htdocs/cms/src/Controller/BlogController.php'|file_link(0) }}">src/Controller/BlogController.php</a></code>
+    </li>
+    <li>Your template at
+      <code><a href="{{ 'C:/xampp/htdocs/cms/templates/blog/index.html.twig'|file_link(0) }}">templates/blog/index.html.twig</a></code>
+    </li>
+  </ul>
+
+  {% for article in blog %}
+    <article class="blog-article">
+      <header class="blog-article__header">
+        <h2 class="blog-article__title">{{ article.title }}</h2>
+        <p>{{ 'published.on'|trans|raw }} <time datetime="{{ article.published_at|date('Y-d-m h:m') }}">{{ article.published_at|localizeddate('full', 'short') }}</time></p>
+      </header>
+      <p class="blog-article__content">{{ article.content }}</p>
+    </article>
+
+  {% endfor %}
+</div>
+{% endblock %}
