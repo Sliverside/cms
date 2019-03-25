@@ -38,16 +38,10 @@ class Pages
      */
     private $children;
 
-    /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Blocks")
-     */
-    private $blocks;
-
     public function __construct()
     {
         $this->translations = new ArrayCollection();
         $this->children = new ArrayCollection();
-        $this->blocks = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -129,32 +123,6 @@ class Pages
     public function getChildren(): Collection
     {
         return $this->children;
-    }
-
-    /**
-     * @return Collection|Blocks[]
-     */
-    public function getBlocks(): Collection
-    {
-        return $this->blocks;
-    }
-
-    public function addBlock(Blocks $block): self
-    {
-        if (!$this->blocks->contains($block)) {
-            $this->blocks[] = $block;
-        }
-
-        return $this;
-    }
-
-    public function removeBlock(Blocks $block): self
-    {
-        if ($this->blocks->contains($block)) {
-            $this->blocks->removeElement($block);
-        }
-
-        return $this;
     }
 
 }

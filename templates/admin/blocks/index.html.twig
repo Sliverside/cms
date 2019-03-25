@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+
+  {% for oneBlock in blocks %}
+    <article class="blog-article">
+      <header class="blog-article__header">
+        <h2 class="blog-article__title">{{ oneBlock.title }}</h2>
+      </header>
+    </article>
+  {% endfor %}
+
+{% endblock %}

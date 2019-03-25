@@ -30,14 +30,19 @@ class Blocks
     private $children;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\BlocksInstances", mappedBy="block_name", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="App\Entity\BlocksInstances", mappedBy="block", orphanRemoval=true)
      */
     private $block_instances;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\BlocksFields", mappedBy="block", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="App\Entity\BlocksFields", mappedBy="block", orphanRemoval=true ,cascade={"persist"})
      */
     private $block_fields;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $name;
 
     public function __construct()
     {
@@ -151,6 +156,22 @@ class Blocks
                 $blockField->setBlock(null);
             }
         }
+
+        return $this;
+    }
+    public function __toString(): string
+    {
+        return $this->getId().'';
+    }
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(string $name): self
+    {
+        $this->name = $name;
 
         return $this;
     }
