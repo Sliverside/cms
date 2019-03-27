@@ -1,5 +1,6 @@
 import {sfCollection} from './helpers/symfony-collection.js';
-sfCollection.init({'collectionsSelector': 'form ul[data-prototype]'});
+import {formTheme} from './helpers/form-theme.js';
+sfCollection.init(); // {'collectionsSelector': 'form ul[data-prototype]'}
 // import {DirectChildren} from './helpers/functions.js';
 
 // var addFieldButton = document.createElement('button');

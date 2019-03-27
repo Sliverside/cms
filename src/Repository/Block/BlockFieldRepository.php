@@ -1,26 +1,26 @@
 <?php
 
-namespace App\Repository;
+namespace App\Repository\Block;
 
-use App\Entity\Blocks;
+use App\Entity\Block\BlockField;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
 /**
- * @method Blocks|null find($id, $lockMode = null, $lockVersion = null)
- * @method Blocks|null findOneBy(array $criteria, array $orderBy = null)
- * @method Blocks[]    findAll()
- * @method Blocks[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method BlockField|null find($id, $lockMode = null, $lockVersion = null)
+ * @method BlockField|null findOneBy(array $criteria, array $orderBy = null)
+ * @method BlockField[]    findAll()
+ * @method BlockField[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class BlocksRepository extends ServiceEntityRepository
+class BlockFieldRepository extends ServiceEntityRepository
 {
     public function __construct(RegistryInterface $registry)
     {
-        parent::__construct($registry, Blocks::class);
+        parent::__construct($registry, BlockField::class);
     }
 
     // /**
-    //  * @return Blocks[] Returns an array of Blocks objects
+    //  * @return BlockField[] Returns an array of BlockField objects
     //  */
     /*
     public function findByExampleField($value)
@@ -37,7 +37,7 @@ class BlocksRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?Blocks
+    public function findOneBySomeField($value): ?BlockField
     {
         return $this->createQueryBuilder('b')
             ->andWhere('b.exampleField = :val')

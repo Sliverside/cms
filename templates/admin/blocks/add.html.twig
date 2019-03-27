@@ -4,26 +4,8 @@
 
 {% block main %}
 <h1>Blocks Add</h1>
-{{ form_start(form) }}
-    {{ form_row(form.parent) }}
-    {{ form_row(form.name) }}
-    <h2>Fields</h3>
-    <ul class="fields" data-prototype="{{ form_widget(form.block_fields.vars.prototype)|e('html_attr') }}" >
-      <li>
-        {% set i = 0 %}
-        {% for field in form.block_fields %}
-        {% set i = i + 1 %}
-          <div id="blocks_block_fields_{{ i }}">
-            {{ form_row(field.field_order) }}
-            {{ form_row(field.label) }}
-            {{ form_row(field.name) }}
-            {{ form_row(field.type) }}
-          </div>
-        {% endfor %}
-      </li>
-    </ul>
-    <button type="submit">Create Block</button>
-{{ form_end(form) }}
+{{form(form)}}
+{{ dump(form) }}
 {% endblock %}
 
 {% block javascripts %}

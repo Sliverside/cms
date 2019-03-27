@@ -1,26 +1,26 @@
 <?php
 
-namespace App\Repository;
+namespace App\Repository\Block;
 
-use App\Entity\BlocksInstancesImages;
+use App\Entity\Block\BlockFieldTranslation;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
 /**
- * @method BlocksInstancesImages|null find($id, $lockMode = null, $lockVersion = null)
- * @method BlocksInstancesImages|null findOneBy(array $criteria, array $orderBy = null)
- * @method BlocksInstancesImages[]    findAll()
- * @method BlocksInstancesImages[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method BlockFieldTranslation|null find($id, $lockMode = null, $lockVersion = null)
+ * @method BlockFieldTranslation|null findOneBy(array $criteria, array $orderBy = null)
+ * @method BlockFieldTranslation[]    findAll()
+ * @method BlockFieldTranslation[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class BlocksInstancesImagesRepository extends ServiceEntityRepository
+class BlockFieldTranslationRepository extends ServiceEntityRepository
 {
     public function __construct(RegistryInterface $registry)
     {
-        parent::__construct($registry, BlocksInstancesImages::class);
+        parent::__construct($registry, BlockFieldTranslation::class);
     }
 
     // /**
-    //  * @return BlocksInstancesImages[] Returns an array of BlocksInstancesImages objects
+    //  * @return BlockFieldTranslation[] Returns an array of BlockFieldTranslation objects
     //  */
     /*
     public function findByExampleField($value)
@@ -37,7 +37,7 @@ class BlocksInstancesImagesRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?BlocksInstancesImages
+    public function findOneBySomeField($value): ?BlockFieldTranslation
     {
         return $this->createQueryBuilder('b')
             ->andWhere('b.exampleField = :val')

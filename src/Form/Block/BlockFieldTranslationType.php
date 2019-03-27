@@ -1,28 +1,27 @@
 <?php
 
-namespace App\Form;
+namespace App\Form\Block;
 
-use App\Entity\BlocksFields;
+use App\Entity\Block\BlockFieldTranslation;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class BlocksFieldsType extends AbstractType
+class BlockFieldTranslationType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('field_order')
             ->add('label')
-            ->add('name')
-            ->add('type')
+            ->add('description')
+            ->add('lang')
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => BlocksFields::class,
+            'data_class' => BlockFieldTranslation::class,
         ]);
     }
 }
