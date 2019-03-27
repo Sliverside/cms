@@ -1,35 +1,22 @@
-.sf-minitoolbar { display: none !important; }
-
-#block {
+body {
+  background-color: hsl(177, 54%, 59%);
 }
 
-#block_block_translations,
-#block_block_fields,
-#block_block_fields_0_block_field_translations {
-  padding: 0 10px 10px;
-}
-
-#block_block_translations {
-  background-color: hsl(214, 100%, 38%);
+.form_wrapper {
   width: calc(100% - 20px);
   margin-left: 20px;
-}
 
-#block_block_fields {
-  background-color: hsl(155, 100%, 38%);
-  width: calc(100% - 20px);
-  margin-left: 20px;
-}
-
-#block_block_fields_0_block_field_translations {
-  background-color: hsl(290, 100%, 38%);
-  width: calc(100% - 20px);
-  margin-left: 20px;
+  border-left: 3px solid hsl(0, 0, 38%);
+  padding: 10px;
+  border-radius: 6px 0 0 6px;
+  background-color: rgba(hsl(0, 0, 38%), 0.2);
 }
 
 form {
-  $primary-color: hsl(0, 0%, 70%);
-  $light-color: lighten($primary-color, 25);
+  $primary-color: hsl(0, 0%, 50%);
+  $light-color: hsl(0, 0%, 100%);
+  $dark-color: hsl(0, 0%, 40%);
+  $dark-color-light: hsl(0, 0%, 80%);
   $inputs-font-size: 20px;
   $transitions: 250ms;
   
@@ -42,17 +29,19 @@ form {
   
   $base-gap: $label-font-size-focus*1.8 + $label-focus-top-gap;
   
-  width: 500px;
+  width: 400px;
   max-width: 80%;
-  min-width: 50%;
   margin: 0 auto;
-  background-color:rgb(73, 73, 73);
-  padding: 0 $base-gap $base-gap;
+  background-color:#fff;
+  padding: $base-gap;
   border-radius: 4px;
 
   section,
   fieldset {
-    margin-top: $base-gap;
+    margin-top: $label-font-size-focus*1.8;
+    &:first-child {
+      margin-top: 20px;
+    }
     &.no-label {
       margin-top: 0;
     }
@@ -111,8 +100,8 @@ form {
         color: rgba(#000, 0.7);
         padding: 0;
         font-size: $label-font-size-focus;
-        line-height: 1em;
-        margin-top: calc(-1em - #{$label-focus-top-gap});
+        line-height: $label-font-size-focus;
+        margin-top: -$label-font-size-focus - $label-focus-top-gap;
       }
     }
   }  
@@ -121,8 +110,10 @@ form {
   select {
     background-color: $light-color;
     border-bottom: 2px solid $primary-color;
+    transition: $transitions;
     &:focus {
-      background-color: lighten($primary-color, 20);
+      border-color: $dark-color;
+      box-shadow: 0 0 100px rgba(#000, 0.7);
     }
   }
 
@@ -209,4 +200,19 @@ form {
     opacity: 1;
     transform: scale(1);
   }
+}
+
+#block_block_translations {
+  border-left-color: hsl(214, 100%, 38%);
+  background-color: rgba(hsl(214, 100%, 38%), 0.2);
+}
+
+#block_block_fields {
+  border-left-color: hsl(155, 100%, 38%);
+  background-color: rgba(hsl(155, 100%, 38%), 0.2);
+}
+
+#block_block_fields_0_block_field_translations {
+  border-left-color: hsl(290, 100%, 38%);
+  background-color: rgba(hsl(290, 100%, 38%), 0.2);
 }

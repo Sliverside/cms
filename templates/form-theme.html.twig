@@ -18,13 +18,13 @@
 {%- endblock form_widget_simple -%}
 
 {%- block form_widget_compound -%}
-    <div {{ block('widget_container_attributes') }}>
+    <section class="form_wrapper no-label" {{ block('widget_container_attributes') }}>
         {%- if form is rootform -%}
             {{ form_errors(form) }}
         {%- endif -%}
         {{- block('form_rows') -}}
         {{- form_rest(form) -}}
-    </div>
+    </section>
 {%- endblock form_widget_compound -%}
 
 {%- block collection_widget -%}
