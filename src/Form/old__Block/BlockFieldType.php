@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Form\Block;
+namespace App\Form\old__Block;
 
 use App\Entity\Block\BlockField;
 use Symfony\Component\Form\AbstractType;

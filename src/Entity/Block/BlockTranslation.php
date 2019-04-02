@@ -3,18 +3,14 @@
 namespace App\Entity\Block;
 
 use Doctrine\ORM\Mapping as ORM;
+use Knp\DoctrineBehaviors\Model as ORMBehaviors;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\Block\BlockTranslationRepository")
  */
 class BlockTranslation
 {
-    /**
-     * @ORM\Id()
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
-     */
-    private $id;
+    use ORMBehaviors\Translatable\Translation;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -22,20 +18,9 @@ class BlockTranslation
     private $label;
 
     /**
-     * @ORM\Column(type="string", length=2)
+     * @ORM\Column(type="text")
      */
-    private $lang;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Block\Block", inversedBy="blockTranslations")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $block;
-
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
+    private $description;
 
     public function getLabel(): ?string
     {
@@ -49,26 +34,14 @@ class BlockTranslation
         return $this;
     }
 
-    public function getLang(): ?string
+    public function getDescription(): ?string
     {
-        return $this->lang;
+        return $this->description;
     }
 
-    public function setLang(string $lang): self
+    public function setDescription(string $description): self
     {
-        $this->lang = $lang;
-
-        return $this;
-    }
-
-    public function getBlock(): ?Block
-    {
-        return $this->block;
-    }
-
-    public function setBlock(?Block $block): self
-    {
-        $this->block = $block;
+        $this->description = $description;
 
         return $this;
     }
